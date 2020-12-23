@@ -37,7 +37,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
+  linkExactActiveClass: "exact-active-spot"
 });
 
 export default router;
