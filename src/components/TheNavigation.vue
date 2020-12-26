@@ -12,8 +12,20 @@
 #nav {
   display: flex;
   justify-content: center;
+  padding: 30px;
 }
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 0 10px;
+}
+
 #nav .exact-active-spot {
   color: purple;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
