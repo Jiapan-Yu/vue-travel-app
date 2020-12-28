@@ -11,17 +11,19 @@ const routes = [
     component: Home
   },
   {
-    path: "/details/:id",
+    path: "/details/:slug",
     name: "details",
     component: () =>
       import(
         /* webpackChunkName: "jamaica" */ "../views/DestinationDetails.vue"
-      )
+      ),
+    caseSensitive: true
   }
 ];
 
 const router = new VueRouter({
   routes,
+  mode: "history",
   linkExactActiveClass: "exact-active-spot"
 });
 

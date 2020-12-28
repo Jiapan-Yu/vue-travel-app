@@ -17,14 +17,13 @@ import store from "@/store.js";
 export default {
   data() {
     return {
-      destinationID: this.$route.params.id
+      slug: this.$route.params.slug
     };
   },
   computed: {
     destination: function() {
       return store.destinations.find(destination => {
-        console.log("this.destinationID: ", this.destinationID);
-        return destination.id == this.destinationID;
+        return destination.slug == this.slug;
       });
     }
   }
