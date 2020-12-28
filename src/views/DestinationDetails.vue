@@ -22,12 +22,13 @@ export default {
   },
   computed: {
     destination: function() {
-      return store.destinations.find(
-        destination => destination.id === this.destinationID
-      );
+      return store.destinations.find(destination => {
+        console.log("this.destinationID: ", this.destinationID);
+        return destination.id == this.destinationID;
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
