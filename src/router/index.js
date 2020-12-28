@@ -17,7 +17,8 @@ const routes = [
       import(
         /* webpackChunkName: "jamaica" */ "../views/DestinationDetails.vue"
       ),
-    caseSensitive: true
+    caseSensitive: true,
+    props: true
   }
 ];
 
