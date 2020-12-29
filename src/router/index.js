@@ -15,10 +15,21 @@ const routes = [
     name: "details",
     component: () =>
       import(
-        /* webpackChunkName: "jamaica" */ "../views/DestinationDetails.vue"
+        /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
       ),
     caseSensitive: true,
-    props: true
+    props: true,
+    children: [
+      {
+        path: ":experienceSlug",
+        name: "experienceDetails",
+        component: () =>
+          import(
+            /* webpackChunkName: "ExperienceDetails" */ "../views/ExperienceDetails.vue"
+          ),
+        props: true
+      }
+    ]
   }
 ];
 
