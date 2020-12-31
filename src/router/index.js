@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import store from "../store.js";
 
 Vue.use(VueRouter);
 
@@ -30,7 +31,18 @@ const routes = [
           ),
         props: true
       }
-    ]
+    ],
+    beforeEnter: (to, from, next) => {
+      let isExist;
+      isExist = store.destinations.find(
+        destination => destination.slug === to.params.slug
+      );
+      if (isExist) {
+        next();
+      } else {
+        next({ name: "notFound" });
+      }
+    }
   },
   {
     path: "*",
