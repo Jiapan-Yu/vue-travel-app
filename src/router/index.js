@@ -8,7 +8,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    caseSensitive: true
   },
   {
     path: "/destination/:slug",
@@ -30,6 +31,12 @@ const routes = [
         props: true
       }
     ]
+  },
+  {
+    path: "*",
+    name: "notFound",
+    component: () =>
+      import(/* webpackChunkName: NotFound */ "@/views/NotFound.vue")
   }
 ];
 
