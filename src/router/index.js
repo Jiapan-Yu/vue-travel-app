@@ -66,7 +66,17 @@ const router = new VueRouter({
         console.log("to.hash: ", to.hash);
         position.selector = to.hash;
 
-        if (document.querySelector(to.hash)) return position;
+        if (to.hash === "#experience") {
+          console.log("to.hash: ", to.hash);
+          position.offset = { y: 140 };
+        }
+
+        if (document.querySelector(to.hash)) {
+          console.log("position: ", position);
+          return position;
+        }
+
+        console.log("return false")
 
         // retain the current scroll position
         return false;

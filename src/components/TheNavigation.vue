@@ -38,6 +38,12 @@ export default {
 #nav {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: 1px solid grey;
+  z-index: 1;
 }
 
 #nav a {
