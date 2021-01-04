@@ -10,7 +10,7 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    caseSensitive: true
+    caseSensitive: true,
   },
   {
     path: "/destination/:slug",
@@ -29,28 +29,28 @@ const routes = [
           import(
             /* webpackChunkName: "ExperienceDetails" */ "../views/ExperienceDetails.vue"
           ),
-        props: true
-      }
+        props: true,
+      },
     ],
     beforeEnter: (to, from, next) => {
       let isExist;
       isExist = store.destinations.find(
-        destination => destination.slug === to.params.slug
+        (destination) => destination.slug === to.params.slug
       );
       if (isExist) {
         next();
       } else {
         next({ name: "notFound" });
       }
-    }
+    },
   },
   {
     path: "/404",
     name: "notFound",
     alias: "*",
     component: () =>
-      import(/* webpackChunkName: NotFound */ "@/views/NotFound.vue")
-  }
+      import(/* webpackChunkName: NotFound */ "@/views/NotFound.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -68,7 +68,7 @@ const router = new VueRouter({
         return false;
       }
     }
-  }
+  },
 });
 
 export default router;
