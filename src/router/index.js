@@ -56,7 +56,19 @@ const routes = [
 const router = new VueRouter({
   routes,
   mode: "history",
-  linkExactActiveClass: "exact-active-spot"
+  linkExactActiveClass: "exact-active-spot",
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      const position = {};
+      if (to.hash) {
+        position.selector = to.hash;
+        // retain the current scroll position
+        return false;
+      }
+    }
+  }
 });
 
 export default router;
