@@ -63,7 +63,11 @@ const router = new VueRouter({
     } else {
       const position = {};
       if (to.hash) {
+        console.log("to.hash: ", to.hash);
         position.selector = to.hash;
+
+        if (document.querySelector(to.hash)) return position;
+
         // retain the current scroll position
         return false;
       }
