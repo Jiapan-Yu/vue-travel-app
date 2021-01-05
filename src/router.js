@@ -45,11 +45,23 @@ const routes = [
     },
   },
   {
+    path: "/user",
+    name: "user",
+    component: () => import(/* webpackChunkName: "User" */ "@/views/User.vue"),
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () =>
+      import(/* webpackChunkName: "Login" */ "@/views/Login.vue"),
+  },
+  {
     path: "/404",
     name: "notFound",
     alias: "*",
     component: () =>
-      import(/* webpackChunkName: NotFound */ "@/views/NotFound.vue"),
+      import(/* webpackChunkName: "NotFound" */ "@/views/NotFound.vue"),
   },
 ];
 
@@ -76,13 +88,29 @@ const router = new VueRouter({
           return position;
         }
 
-        console.log("return false")
+        console.log("return false");
 
         // retain the current scroll position
         return false;
       }
     }
   },
+});
+
+router.beforeEach((to, from, next) => {
+  // if (to.meta.requiresAuth) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // need to login
+    if (!store.user) {
+      next({
+        name: "login",
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
