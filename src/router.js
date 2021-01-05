@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import store from "../store.js";
+import Home from "./views/Home.vue";
+import store from "./store.js";
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const routes = [
     name: "details",
     component: () =>
       import(
-        /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails.vue"
+        /* webpackChunkName: "DestinationDetails" */ "./views/DestinationDetails.vue"
       ),
     caseSensitive: true,
     props: true,
@@ -27,7 +27,7 @@ const routes = [
         name: "experienceDetails",
         component: () =>
           import(
-            /* webpackChunkName: "ExperienceDetails" */ "../views/ExperienceDetails.vue"
+            /* webpackChunkName: "ExperienceDetails" */ "./views/ExperienceDetails.vue"
           ),
         props: true,
       },
