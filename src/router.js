@@ -86,7 +86,7 @@ const router = new VueRouter({
         position.selector = to.hash;
 
         if (to.hash === "#experience") {
-          console.log("to.hash: ", to.hash);
+          console.log("scrollBehavior's to: ", to);
           position.offset = { y: 140 };
         }
 
@@ -106,6 +106,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // if (to.meta.requiresAuth) {
+  console.log("beforeEach's to: ", to);
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     // need to login
     if (!store.user) {
