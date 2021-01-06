@@ -109,6 +109,8 @@ router.beforeEach((to, from, next) => {
     // need to login
     if (!store.user) {
       next({
+        // https://router.vuejs.org/zh/guide/essentials/navigation.html
+        // name 和 query 可以共用
         name: "login",
         query: {
           redirect: to.fullPath
