@@ -53,7 +53,8 @@ const routes = [
   {
     path: "/invoices",
     name: "invoices",
-    component: () => import(/* webpackChunkName: "Invoices" */ "@/views/Invoices.vue"),
+    component: () =>
+      import(/* webpackChunkName: "Invoices" */ "@/views/Invoices.vue"),
     meta: { requiresAuth: true },
   },
   {
@@ -105,7 +106,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // if (to.meta.requiresAuth) {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
     // need to login
     if (!store.user) {
       next({
@@ -113,8 +114,8 @@ router.beforeEach((to, from, next) => {
         // name 和 query 可以共用
         name: "login",
         query: {
-          redirect: to.fullPath
-        }
+          redirect: to.fullPath,
+        },
       });
     } else {
       next();
