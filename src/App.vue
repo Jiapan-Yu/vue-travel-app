@@ -2,7 +2,7 @@
   <div id="app">
     <TheNavigation />
     <transition>
-      <router-view :key="$route.path" />
+      <router-view />
     </transition>
   </div>
 </template>
@@ -34,6 +34,7 @@ export default {
   opacity: 0;
   transform: translateX(-30%);
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
